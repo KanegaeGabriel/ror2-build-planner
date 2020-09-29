@@ -1,7 +1,7 @@
 useBase64 = false;
 items = {};
 const colors = ['w', 'g', 'r', 'y', 'b'];
-const infVal = 10;
+const infVal = 50;
 
 // Run onLoad() on page load
 document.addEventListener('DOMContentLoaded', function() { onLoad(); }, false);
@@ -127,7 +127,7 @@ function addItem(itemID) {
 function removeItem(index, itemID) {
     color = itemDataByID[itemID]['color'];
 
-    if (items[color][index] > 1) {
+    if (items[color][index] > 1 && items[color][index] < infVal) {
         items[color][index] -= 1;
     } else {
         // Remove item
