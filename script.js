@@ -183,7 +183,7 @@ function importData() {
 }
 
 function exportData() {
-    if (items.length === 0) {
+    if (Object.values(items).every(v => v.length === 0)) {
         document.getElementById('textbox').value = '';
         return;
     }
