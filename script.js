@@ -108,6 +108,11 @@ function breakDescriptionLines(desc) {
 function addItem(itemID) {
     color = itemDataByID[itemID]['color'];
 
+    // Limit item amount to 25 (TODO fix automatic .item_list horizontal scaling)
+    if (items[color].length >= 5*5*2) {
+        return;
+    }
+
     if (items[color].length > 0 && itemID === items[color][items[color].length-1]) {
         items[color][items[color].length-2] += 1; // Same as last
     } else {
