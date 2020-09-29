@@ -22,7 +22,7 @@ function onLoad() {
     for (itemID of itemIDs) {
         var style = document.createElement('style');
         style.type = 'text/css';
-        style.innerHTML = '.icon_' + itemID + ' { content: url("' + itemDataByID[itemID]['icon'] + '") }';
+        style.innerHTML = '.icon_' + itemID + ', .icon_' + itemID + ':after { content: url("' + itemDataByID[itemID]['icon'] + '") }';
         document.getElementsByTagName('head')[0].appendChild(style);
     }
 
@@ -35,10 +35,10 @@ function onLoad() {
     for (color of colors) {
         content = '';
         for (item of itemDataByColor[color]) {
-            content += '<img class="icon icon_' + item['id'] + '"';
+            content += '<div class="icon icon_' + item['id'] + '"';
             content += 'onclick="addItem(\'' + item['id'] + '\')" ';
             content += 'title="' + item['name'] + '\n\n' + item['description'] + '" ';
-            content += '/>';
+            content += '></div>';
         }
         document.getElementById('item_select_' + color).innerHTML = content;
     }
@@ -57,11 +57,8 @@ function updateAll() {
 }
 
 function updateColor(color) {
-    if (items[color].length == 0) {
-        content = '';
-    } else {
-        content = '<div style="display: flex; flex-wrap: wrap; height: 0px;">';
-        
+    content = '';
+    if (items[color].length > 0) {
         for (i = 0; i < items[color].length; i+=2) {
             amt = items[color][i];
             itemID = items[color][i+1];
@@ -76,14 +73,12 @@ function updateColor(color) {
             }
 
             content += '<div class="item_with_amount" onclick="removeItem(' + i + ', \'' + item['id'] + '\')"/>';
-            content += '<img class="icon icon_' + item['id'] + '"';
+            content += '<div class="icon icon_' + item['id'] + '"';
             content += 'title="' + item['name'] + '\n\n' + item['description'] + '" ';
-            content += '/>';
+            content += '></div>';
             content += '<p class="item_amount">' + amtText + '</p>';
             content += '</div>';
         }
-
-        content += '</div>';
     }
 
     document.getElementById('item_list_' + color).innerHTML = content;

@@ -6,15 +6,8 @@ body {
     background-size: cover;
 }
 
-.item_select img, .item_list img {
-    width: 48px;
-    height: 48px;
-    border: 1px solid #cccccc;
-    background-color: #aaaaaa;
-}
-
 button {
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 15px;
     height: 25px;
@@ -22,7 +15,7 @@ button {
 }
 
 a:hover, a:visited, a:link, a:active {
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 15px;
     color: white;
@@ -48,68 +41,61 @@ header {
 }
 
 #title {
-    font-family: Roboto, sans-serif;
-    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
     color: white;
-    -webkit-text-stroke-width: 2px;
-    -webkit-text-stroke-color: black;
-    font-size: 35px;
     text-align: center;
     margin: 0 auto;
     padding: 0px;
     width: 30%;
 }
 
-#item_selects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+.icon {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #cccccc;
+    background-color: #aaaaaa;
 }
 
-.item_select {
+#item_selects, #item_lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.item_select, .item_list {
+    display: grid;
+    grid-gap: 5px 5px;
+    grid-template-columns: repeat(5, 48px);
+    grid-template-rows: repeat(5, 48px);
+    padding: 10px 5px 5px 5px;
+    justify-content: center;
+
     background: #555555;
-    padding: 5px 0px 0px 5px;
-    margin: 4px;
     border: 2px solid;
     width: 270px;
-}
-
-.icon {
-    margin-right: 4px;
-}
-
-.item_lists {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
+    height: 270px;
 }
 
 .item_list {
-    background: #555555;
-    padding: 5px 0px 0px 5px;
-    margin: 4px;
-    border: 2px solid;
-    width: 270px;
     min-height: 250px;
 }
 
-.item_with_amount {
+.item_list .icon {
     position: relative;
     text-align: center;
-    color: white;
 }
 
 .item_amount {
-    font-family: Roboto, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: bold;
     font-size: 18px;
     color: white;
 
-    position: absolute;
-    right: 8px;
-    bottom: 14px;
+    z-index: 1;
+    margin: 0 auto;
+    position: relative;
+    left: 24px;
+    bottom: 47px;
 }
 
 .border_w { border-color: #dee4e9; }
