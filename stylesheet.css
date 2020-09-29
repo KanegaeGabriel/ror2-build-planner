@@ -14,7 +14,7 @@ body {
 }
 
 button {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-weight: bold;
     font-size: 15px;
     height: 25px;
@@ -22,7 +22,7 @@ button {
 }
 
 a:hover, a:visited, a:link, a:active {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-weight: bold;
     font-size: 15px;
     color: white;
@@ -48,7 +48,7 @@ header {
 }
 
 #title {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-weight: bold;
     color: white;
     -webkit-text-stroke-width: 2px;
@@ -102,7 +102,7 @@ header {
 }
 
 .item_amount {
-    font-family: Roboto;
+    font-family: Roboto, sans-serif;
     font-weight: bold;
     font-size: 18px;
     color: white;
