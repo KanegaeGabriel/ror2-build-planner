@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <title>RoR2 - Build Planner</title>
+    <head>
+        <link type="text/css" rel="stylesheet" href="stylesheet.css"/>
+        <script type="text/javascript" src="items.js"></script>
+        <script type="text/javascript" src="script.js"></script>
+        <link rel="shortcut icon" href="https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/6/64/Favicon.ico"/>
+    </head>
+    <body>
+        <header>
+            <div id="options">
+                <div id="opt1">
+                    <button id="exportButton" onClick="exportData()" type="button">Export</button>
+                    <input id="textbox" type="text" id="textbox" onClick="this.select();" placeholder="Import string here (:">
+                    <button id="importButton" onClick="importData()" type="button">Import</button>
+                </div>
+                <br/>
+                <div id="opt2">
+                    <button id="resetButton" onClick="reset()" type="button">Reset</button>
+                    <a href="https://riskofrain2.gamepedia.com/Items" target="_blank">Items @ Wiki</a>
+                </div>
+            </div>
+            <h1 id="title">Risk of Rain 2<br/>Build Planner</h1>
+        </header>
+        <section id="item_selects">
+            <div class="item_select border_w" id="item_select_w"></div>
+            <div class="item_select border_g" id="item_select_g"></div>
+            <div class="item_select border_r" id="item_select_r"></div>
+            <div class="item_select border_y" id="item_select_y"></div>
+            <div class="item_select border_b" id="item_select_b"></div>
+        </section>
+        <br/>
+        <section class="item_lists">
+            <div class="item_list border_w" id="item_list_w"></div>
+            <div class="item_list border_g" id="item_list_g"></div>
+            <div class="item_list border_r" id="item_list_r"></div>
+            <div class="item_list border_y" id="item_list_y"></div>
+            <div class="item_list border_b" id="item_list_b"></div>
+        </section>
+    </body>
+</html>

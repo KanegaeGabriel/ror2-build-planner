@@ -1,0 +1,119 @@
+body {
+    background: url("https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/1/1f/Background.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.item_select img, .item_list img {
+    width: 48px;
+    height: 48px;
+    border: 1px solid #cccccc;
+    background-color: #aaaaaa;
+}
+
+button {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 15px;
+    height: 25px;
+    width: 75px;
+}
+
+a:hover, a:visited, a:link, a:active {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 15px;
+    color: white;
+}
+
+input {
+    width: 25%;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    margin: 10px 0px 10px 0px;
+    background-color: #00000055;
+    padding-left: 10px;
+}
+
+#options {
+    position: absolute;
+    left: 1%;
+    width: 70%;
+}
+
+#title {
+    font-family: Roboto;
+    font-weight: bold;
+    color: white;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: black;
+    font-size: 35px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 0px;
+    width: 30%;
+}
+
+#item_selects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.item_select {
+    background: #555555;
+    padding: 5px 0px 0px 5px;
+    margin: 4px;
+    border: 2px solid;
+    width: 270px;
+}
+
+.icon {
+    margin-right: 4px;
+}
+
+.item_lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.item_list {
+    background: #555555;
+    padding: 5px 0px 0px 5px;
+    margin: 4px;
+    border: 2px solid;
+    width: 270px;
+    min-height: 250px;
+}
+
+.item_with_amount {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.item_amount {
+    font-family: Roboto;
+    font-weight: bold;
+    font-size: 18px;
+    color: white;
+
+    position: absolute;
+    right: 8px;
+    bottom: 14px;
+}
+
+.border_w { border-color: #dee4e9; }
+.border_g { border-color: #73c047; }
+.border_r { border-color: #f06449; }
+.border_y { border-color: #ccd83a; }
+.border_b { border-color: #53d9ea; }
