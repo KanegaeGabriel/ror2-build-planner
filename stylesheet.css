@@ -60,6 +60,11 @@ header {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
 }
 
 .item_select, .item_list {
