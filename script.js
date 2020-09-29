@@ -163,7 +163,13 @@ function importData() {
                 if (tuple.length !== 2 || typeof(tuple[0]) != "number" || typeof(tuple[1]) != "string" || tuple[0] < 1 || !itemIDs.includes(tuple[1])) {
                     throw new Error('Invalid argument "[' + tuple + ']"');
                 }
-                items[color] = items[color].concat(tuple);
+
+                // Repeated items side-by-side in import string, stack them
+                if (items[color].length >= 2 && items[color][items[color].length-1] == tuple[1]) {
+                    items[color][items[color].length-2] += tuple[0];
+                } else {
+                    items[color] = items[color].concat(tuple);
+                }
             }
         }
     } catch (e) {
