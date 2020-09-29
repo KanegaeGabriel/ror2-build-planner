@@ -66,16 +66,15 @@ function updateColor(color) {
 
             if (amt == 1) {
                 amtText = '';
-            } else if (amt > 50) {
+            } else if (amt >= 50) {
                 amtText = '&#215;&#8734;'; // Infinity
             } else {
                 amtText = '&#215;' + amt;
             }
 
-            content += '<div class="item_with_amount" onclick="removeItem(' + i + ', \'' + item['id'] + '\')"/>';
-            content += '<div class="icon icon_' + item['id'] + '"';
-            content += 'title="' + item['name'] + '\n\n' + item['description'] + '" ';
-            content += '></div>';
+            content += '<div class="item_with_amount" onclick="removeItem(' + i + ', \'' + item['id'] + '\')"';
+            content += 'title="' + item['name'] + '\n\n' + item['description'] + '"/>';
+            content += '<div class="icon icon_' + item['id'] + '"></div>';
             content += '<p class="item_amount">' + amtText + '</p>';
             content += '</div>';
         }
