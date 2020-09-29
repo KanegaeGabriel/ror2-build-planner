@@ -1,11 +1,13 @@
 useBase64 = false;
-items = [];
+items = {};
 const colors = ['w', 'g', 'r', 'y', 'b'];
 
 // Run onLoad() on page load
 document.addEventListener('DOMContentLoaded', function() { onLoad(); }, false);
 
 function onLoad() {
+    for (color of colors) items[color] = [];
+    
     itemDataByID = {};
     for (color of colors) {
         for (item of itemDataByColor[color]) {
@@ -43,7 +45,7 @@ function onLoad() {
 }
 
 function reset() {
-    items = [];
+    for (color of colors) items[color] = [];
     updateAll();
     document.getElementById('textbox').value = '';
 }
@@ -55,27 +57,14 @@ function updateAll() {
 }
 
 function updateColor(color) {
-    data = [];
-    
-    // Get all items of specified color
-    for (i = 0; i < items.length; i+=2) {
-        amt = items[i];
-        itemID = items[i+1];
-        item = itemDataByID[itemID];
-
-        if (item['color'] === color) {
-            data.push(amt, itemID);
-        }
-    }
-
-    if (data.length == 0) {
+    if (items[color].length == 0) {
         content = '';
     } else {
         content = '<div style="display: flex; flex-wrap: wrap; height: 0px;">';
         
-        for (i = 0; i < data.length; i+=2) {
-            amt = data[i];
-            itemID = data[i+1];
+        for (i = 0; i < items[color].length; i+=2) {
+            amt = items[color][i];
+            itemID = items[color][i+1];
             item = itemDataByID[itemID];
 
             if (amt == 1) {
@@ -122,10 +111,12 @@ function breakDescriptionLines(desc) {
 }
 
 function addItem(itemID) {
-    if (items.length > 0 && itemID === items[items.length-1]) {
-        items[items.length-2] += 1; // Same as last
+    color = itemDataByID[itemID]['color'];
+
+    if (items[color].length > 0 && itemID === items[color][items[color].length-1]) {
+        items[color][items[color].length-2] += 1; // Same as last
     } else {
-        items.push(1, itemID); // New item
+        items[color].push(1, itemID); // New item
     }
 
     updateColor(itemDataByID[itemID]['color']);
@@ -133,16 +124,18 @@ function addItem(itemID) {
 }
 
 function removeItem(index, itemID) {
-    if (items[index] > 1) {
-        items[index] -= 1;
+    color = itemDataByID[itemID]['color'];
+
+    if (items[color][index] > 1) {
+        items[color][index] -= 1;
     } else {
         // Remove item
-        items.splice(index, 2);
+        items[color].splice(index, 2);
 
         // Stack adjacent item amounts
-        if (index < items.length && index-2 >= 0 && items[index+1] == items[index-1]) {
-            items[index-2] += items[index];
-            items.splice(index, 2);
+        if (index < items[color].length && index-2 >= 0 && items[color][index+1] == items[color][index-1]) {
+            items[color][index-2] += items[color][index];
+            items[color].splice(index, 2);
         }
     }
     updateColor(itemDataByID[itemID]['color']);
@@ -160,7 +153,7 @@ function importData() {
     try {
         data = JSON.parse(json);
 
-        items = [];
+        for (color of colors) items[color] = [];
         for (color of Object.keys(data)) {
             if (!colors.includes(color)) {
                 throw new Error('Invalid color "' + color + '"');
@@ -170,7 +163,7 @@ function importData() {
                 if (tuple.length !== 2 || typeof(tuple[0]) != "number" || typeof(tuple[1]) != "string" || tuple[0] < 1 || !itemIDs.includes(tuple[1])) {
                     throw new Error('Invalid argument "[' + tuple + ']"');
                 }
-                items = items.concat(tuple);
+                items[color] = items[color].concat(tuple);
             }
         }
     } catch (e) {
@@ -190,15 +183,17 @@ function exportData() {
     }
 
     data = {};
-    for (i = 0; i < items.length; i+=2) {
-        amt = items[i];
-        itemID = items[i+1];
-        item = itemDataByID[itemID];
+    for (color of colors) {
+        for (i = 0; i < items[color].length; i+=2) {
+            amt = items[color][i];
+            itemID = items[color][i+1];
+            item = itemDataByID[itemID];
 
-        if (!(item['color'] in data)) {
-            data[item['color']] = [];
+            if (!(color in data)) {
+                data[color] = [];
+            }
+            data[item['color']].push([amt, itemID]);
         }
-        data[item['color']].push([amt, itemID]);
     }
     json = JSON.stringify(data);
 
