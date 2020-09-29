@@ -1,6 +1,7 @@
 useBase64 = false;
 items = {};
 const colors = ['w', 'g', 'r', 'y', 'b'];
+const infVal = 10;
 
 // Run onLoad() on page load
 document.addEventListener('DOMContentLoaded', function() { onLoad(); }, false);
@@ -66,7 +67,7 @@ function updateColor(color) {
 
             if (amt == 1) {
                 amtText = '';
-            } else if (amt >= 50) {
+            } else if (amt >= infVal) {
                 amtText = '&#215;&#8734;'; // Infinity
             } else {
                 amtText = '&#215;' + amt;
@@ -114,6 +115,7 @@ function addItem(itemID) {
 
     if (items[color].length > 0 && itemID === items[color][items[color].length-1]) {
         items[color][items[color].length-2] += 1; // Same as last
+        items[color][items[color].length-2] = Math.min(items[color][items[color].length-2], infVal);
     } else {
         items[color].push(1, itemID); // New item
     }
@@ -134,6 +136,8 @@ function removeItem(index, itemID) {
         // Stack adjacent item amounts
         if (index < items[color].length && index-2 >= 0 && items[color][index+1] == items[color][index-1]) {
             items[color][index-2] += items[color][index];
+            items[color][index-2] = Math.min(items[color][index-2], infVal);
+
             items[color].splice(index, 2);
         }
     }
@@ -163,9 +167,12 @@ function importData() {
                     throw new Error('Invalid argument "[' + tuple + ']"');
                 }
 
+                tuple[0] = Math.min(tuple[0], infVal);
+
                 // Repeated items side-by-side in import string, stack them
                 if (items[color].length >= 2 && items[color][items[color].length-1] == tuple[1]) {
                     items[color][items[color].length-2] += tuple[0];
+                    items[color][items[color].length-2] = Math.min(items[color][items[color].length-2], infVal);
                 } else {
                     items[color] = items[color].concat(tuple);
                 }
@@ -197,6 +204,8 @@ function exportData() {
             if (!(color in data)) {
                 data[color] = [];
             }
+            
+            amt = Math.min(amt, infVal);
             data[item['color']].push([amt, itemID]);
         }
     }
