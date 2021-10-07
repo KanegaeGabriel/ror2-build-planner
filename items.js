@@ -34,19 +34,19 @@ const itemDataByColor = {
             "id": "bustling_fungus",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/3/33/Bustling_Fungus.png",
             "name": "Bustling Fungus",
-            "description": "After standing still for 2 seconds, create a zone that heals for 4.5% (+2.25% per stack) of your health every second to all allies within 3m (+1.5m per stack)."
+            "description": "After standing still for 1 second, create a zone that heals for 4.5% (+2.25% per stack) of your health every second to all allies within 3m (+1.5m per stack)."
         },
         {
             "id": "crowbar",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/c/c0/Crowbar.png",
             "name": "Crowbar",
-            "description": "Deal 150% (+50% per stack) damage to enemies above 90% health."
+            "description": "Deal 75% (+75% per stack) damage to enemies above 90% health."
         },
         {
             "id": "tri-tip_dagger",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/1/17/Tri-Tip_Dagger.png",
             "name": "Tri-Tip Dagger",
-            "description": "15% (+15% per stack) chance to bleed an enemy for 240% base damage."
+            "description": "10% (+10% per stack) chance to bleed an enemy for 240% base damage."
         },
         {
             "id": "warbanner",
@@ -58,7 +58,7 @@ const itemDataByColor = {
             "id": "cautious_slug",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/c/c6/Cautious_Slug.png",
             "name": "Cautious Slug",
-            "description": "Increases base health regeneration by +4 hp/s (+4 hp/s per stack) while outside of combat."
+            "description": "Increases base health regeneration by +3 hp/s (+3 hp/s per stack) while outside of combat."
         },
         {
             "id": "personal_shield_generator",
@@ -76,7 +76,7 @@ const itemDataByColor = {
             "id": "gasoline",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/6/6e/Gasoline.png",
             "name": "Gasoline",
-            "description": "Killing an enemy ignites all enemies within 12m (+4m per stack). Enemies burn for 150% (+75% per stack) base damage."
+            "description": "Killing an enemy ignites all enemies within 12m (+4m per stack) for 150% base damage. Additionally, enemies burn for 150% (+75% per stack) base damage."
         },
         {
             "id": "stun_grenade",
@@ -94,7 +94,7 @@ const itemDataByColor = {
             "id": "energy_drink",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/7/7e/Energy_Drink.png",
             "name": "Energy Drink",
-            "description": "Sprint speed is improved by 30% (+20% per stack)."
+            "description": "Sprint speed is improved by 25% (+25% per stack)."
         },
         {
             "id": "backup_magazine",
@@ -112,7 +112,7 @@ const itemDataByColor = {
             "id": "rusted_key",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/9/9b/Rusted_Key.png",
             "name": "Rusted Key",
-            "description": "A hidden cache containing an item will appear in a random location on each stage. (Increases rarity of the item per stack)."
+            "description": "A hidden cache containing an item (80% green, 20% red) will appear in a random location on each stage. Opening the cache consumes this item."
         },
         {
             "id": "armor-piercing_rounds",
@@ -130,13 +130,13 @@ const itemDataByColor = {
             "id": "focus_crystal",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/5/59/Focus_Crystal.png",
             "name": "Focus Crystal",
-            "description": "Increase damage to enemies within 13m by 15% (+15% per stack)."
+            "description": "Increase damage to enemies within 13m by 20% (+20% per stack)."
         },
         {
-            "id": "fresh_meat",
-            "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/e/ec/Fresh_Meat.png",
-            "name": "Fresh Meat",
-            "description": "Increases base health regeneration by +2 hp/s for 3s (+3s per stack) after killing an enemy."
+            "id": "bison_steak",
+            "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/9/9f/Bison_Steak.png",
+            "name": "Bison Steak",
+            "description": "Increases maximum health by 25 (+25 per stack)."
         },
         {
             "id": "repulsion_armor_plate",
@@ -192,7 +192,7 @@ const itemDataByColor = {
             "id": "old_war_stealthkit",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/2/2c/Old_War_Stealthkit.png",
             "name": "Old War Stealthkit",
-            "description": "Chance on taking damage to gain 40% movement speed and invisibility for 3s (+1.5s per stack). Chance increases the more damage you take."
+            "description": "Falling below 25% health causes you to gain 40% movement speed and invisibility for 5s. Recharges every 30 seconds (-50% per stack)."
         },
         {
             "id": "harvesters_scythe",
@@ -302,7 +302,7 @@ const itemDataByColor = {
             "id": "brilliant_behemoth",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/f/fa/Brilliant_Behemoth.png",
             "name": "Brilliant Behemoth",
-            "description": "All your attacks explode in a 4m (+1.5m per stack) radius for a bonus 60% TOTAL damage to nearby enemies."
+            "description": "All your attacks explode in a 4m (+2.5m per stack) radius for a bonus 60% TOTAL damage to nearby enemies."
         },
         {
             "id": "ceremonial_dagger",
@@ -314,7 +314,7 @@ const itemDataByColor = {
             "id": "frost_relic",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/5/58/Frost_Relic.png",
             "name": "Frost Relic",
-            "description": "Killing an enemy surrounds you with an ice storm that deals 600% damage per second. The storm grows with every kill, increasing its radius by 1m. Stacks up to 6m (+6m per stack)."
+            "description": "Frost Relic Killing an enemy surrounds you with an ice storm that deals 1200% damage per second and slows enemies by 80% for 1.5s. The storm grows with every kill, increasing its radius by 2m. Stacks up to 18m (+12m per stack)."
         },
         {
             "id": "happiest_mask",
@@ -326,7 +326,7 @@ const itemDataByColor = {
             "id": "h3ad-5t_v2",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/3/36/H3AD-5T_v2.png",
             "name": "H3AD-5T v2",
-            "description": "Increase jump height. Creates a 5m-100m radius kinetic explosion on hitting the ground, dealing 1000%-10000% base damage that scales up with speed. Recharges in 10 (-50% per stack) seconds."
+            "description": "Increase jump height. Creates a 5m-100m radius kinetic explosion on hitting the ground, dealing 1000%-10000% base damage that scales up with fall distance. Recharges in 10 (-50% per stack) seconds."
         },
         {
             "id": "nkuhanas_opinion",
@@ -410,13 +410,13 @@ const itemDataByColor = {
             "id": "resonance_disc",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/8/8d/Resonance_Disc.png",
             "name": "Resonance Disc",
-            "description": "Killing enemies charges the Resonance Disc. The disc launches itself toward a target for 300% base damage (+300% per stack), piercing all enemies it doesn't kill, and then explodes for 1000% base damage (+1000% per stack). Returns to the user, striking all enemies along the way for 300% base damage (+300% per stack)."
+            "description": "Killing 4 enemies in 7 seconds charges the Resonance Disc. The disc launches itself toward a target for 300% base damage (+300% per stack), piercing all enemies it doesn't kill, and then explodes for 1000% base damage (+1000% per stack). Returns to the user, striking all enemies along the way for 300% base damage (+300% per stack)."
         },
         {
             "id": "interstellar_desk_plant",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/1/1e/Interstellar_Desk_Plant.png",
             "name": "Interstellar Desk Plant",
-            "description": "On kill, plant a healing fruit seed that grows into a plant after 5 seconds. The plant heals for 10% of maximum health every second to all allies within 5m (+5.0m per stack). Lasts 10 seconds."
+            "description": "On kill, plant a healing fruit seed that grows into a plant after 5 seconds. The plant heals for 10% of maximum health every 0.5 second to all allies within 5m (+5.0m per stack). Lasts 10 seconds."
         }
     ],
     "y": [
@@ -460,7 +460,25 @@ const itemDataByColor = {
             "id": "mired_urn",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/6/62/Mired_Urn.png",
             "name": "Mired Urn",
-            "description": "While in combat, the nearest 1 (+1 per stack) characters to you within 13m will be 'tethered' to you, dealing 100% damage per second, applying tar, and healing you for 100% of the damage dealt."
+            "description": "While in combat, the nearest 1 (+1 per stack) enemies to you within 13m will be 'tethered' to you, dealing 100% damage per second, applying tar, and healing you for 100% of the damage dealt."
+        },
+        {
+            "id": "charged_perforator",
+            "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/c/cc/Charged_Perforator.png",
+            "name": "Charged Perforator",
+            "description": "10% chance on hit to down a lightning strike, dealing 500% (+500% per stack) damage.",
+        },
+        {
+            "id": "empathy_cores",
+            "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/5/51/Empathy_Cores.png",
+            "name": "Empathy Cores",
+            "description": "Every 30 seconds, summon two Solus Probes that gain +100% (+100% per stack) damage per ally on your team.",
+        },
+        {
+            "id": "planula",
+            "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/a/a9/Planula.png",
+            "name": "Planula",
+            "description": "Heal from incoming damage for 15 (+15 per stack).",
         }
     ],
     "b": [
@@ -480,7 +498,7 @@ const itemDataByColor = {
             "id": "corpsebloom",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/3/31/Corpsebloom.png",
             "name": "Corpsebloom",
-            "description": "Heal +100% (+100% per stack) more. All healing is applied over time. Can heal for a maximum of 10% (reduced by 50% per stack) of your health per second."
+            "description": "Heal +100% (+100% per stack) more. All healing is applied over time. Can heal for a maximum of 10% (-50% per stack) of your health per second."
         },
         {
             "id": "transcendence",
@@ -498,13 +516,13 @@ const itemDataByColor = {
             "id": "strides_of_heresy",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/1/1a/Strides_of_Heresy.png",
             "name": "Strides of Heresy",
-            "description": "Replace your Utility Skill with Shadowfade. Fade away, becoming intangible and gaining +30% movement speed. Heal for 25% (+25% per stack) of your maximum health. Lasts 3 (+3 per stack) seconds."
+            "description": "Replace your Utility Skill with Shadowfade: 'Fade away, becoming intangible and gaining +30% movement speed. Heal for 18.2% (+18.2% per stack) of your maximum health. Lasts 3 (+3 per stack) seconds.'"
         },
         {
             "id": "visions_of_heresy",
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/3/31/Visions_of_Heresy.png",
             "name": "Visions of Heresy",
-            "description": "Replace your Primary Skill with Hungering Gaze. Fire a flurry of tracking shards that detonate after a delay, dealing 120% base damage. Hold up to 12 charges (+12 per stack) that reload after 2 seconds (+2 per stack)."
+            "description": "Replace your Primary Skill with Hungering Gaze: 'Fire a flurry of tracking shards that detonate after a delay, dealing 120% base damage. Hold up to 12 charges (+12 per stack) that reload after 2 seconds (+2 per stack).'"
         },
         {
             "id": "beads_of_fealty",
@@ -535,6 +553,18 @@ const itemDataByColor = {
             "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/a/a2/Purity.png",
             "name": "Purity",
             "description": "All skill cooldowns are reduced by 2 (+1 per stack) seconds. All random effects are rolled +1 (+1 per stack) times for an unfavorable outcome."
+        },
+        {
+            "id": "essence_of_heresy",
+            "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/3/3e/Essence_of_Heresy.png",
+            "name": "Essence of Heresy",
+            "description": "Replace your Secondary Skill with Slicing Maelstrom: 'Charge up a projectile that deals 875% damage per second to nearby enemies, exploding after 3 seconds to deal 700% damage and root enemies for 3 (+3 per stack) seconds. Recharges after 5 (+5 per stack) seconds.'"
+        },
+        {
+            "id": "hooks_of_heresy",
+            "icon": "https://static.wikia.nocookie.net/riskofrain2_gamepedia_en/images/6/66/Hooks_of_Heresy.png",
+            "name": "Hooks of Heresy",
+            "description": "Replace your Special Skill with Ruin: 'Dealing damage adds a stack of Ruin for 10 (+10 per stack) seconds. Activating the skill detonates all Ruin stacks at unlimited range, dealing 300% damage plus 120% damage per stack of Ruin. Recharges after 8 (+8 per stack) seconds.'",
         }
     ]
 }
