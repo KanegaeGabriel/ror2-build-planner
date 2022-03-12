@@ -59,7 +59,6 @@ header {
 #item_selects, #item_lists {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
     
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -72,13 +71,14 @@ header {
     grid-gap: 5px 5px;
     grid-template-columns: repeat(5, 48px);
     grid-template-rows: repeat(5, 48px);
-    padding: 10px 5px 5px 5px;
+    
     justify-content: center;
 
     background: #555555;
     border: 2px solid;
-    width: 270px;
-    height: 270px;
+
+    margin: 1rem;
+    padding: 1rem;
 }
 
 .item_list {
@@ -108,3 +108,5 @@ header {
 .border_r { border-color: #f06449; }
 .border_y { border-color: #ccd83a; }
 .border_b { border-color: #53d9ea; }
+.border_p { border-color: #C678B4; }
+.border_o { border-color: #FF6633; }
