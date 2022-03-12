@@ -1,6 +1,6 @@
 useBase64 = false;
 items = {};
-const colors = ['w', 'g', 'r', 'y', 'b'];
+const colors = ['w', 'g', 'r', 'y', 'b', 'p', 'o'];
 const infVal = 50;
 
 // Run onLoad() on page load
