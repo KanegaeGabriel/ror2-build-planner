@@ -1,0 +1,25 @@
+{
+  "name": "ror2-build-planner",
+  "version": "1.0.0",
+  "description": "Plan your items before the start of a run and aim for an OP build!",
+  "main": "items.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whothisbeme/ror2-build-planner.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whothisbeme/ror2-build-planner/issues"
+  },
+  "homepage": "https://github.com/whothisbeme/ror2-build-planner#readme",
+  "dependencies": {
+    "got": "^12.0.1",
+    "jsdom": "^19.0.0"
+  },
+  "type": "module"
+}
